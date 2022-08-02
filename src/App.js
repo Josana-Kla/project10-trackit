@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import SignIn from "./pages/sign-in/SignIn";
-import SignUp from "./pages/sign-in/SignUp";
-import Habits from "./pages/sign-in/Habits";
-import TodayHabits from "./pages/sign-in/TodayHabits";
-import HabitsHistory from "./pages/sign-in/HabitsHistory";
+import SignUp from "./pages/sign-up/SignUp";
+import Habits from "./pages/habits/Habits";
+import TodayHabits from "./pages/today-habits/TodayHabits";
+import HabitsHistory from "./pages/habits-history/HabitsHistory";
 
 export default function App() {
     return (
