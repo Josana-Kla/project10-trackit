@@ -1,50 +1,32 @@
+import { useState } from "react";
+
+
+import CreateHabits from "../../components/create-habits/CreateHabits";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import TodayHabits from "../today-habits/TodayHabits";
 
 export default function Habits() {
+    const [ createHabits, setCreateHabits ] = useState(false);
+
     return (
         <>
             <Header />
                 <main>
-                    <div>
-                        <h2>Meus hábitos</h2>
-                        <button>+</button>
-                    </div>
-
-                  {/*   <div>
-                        <div>
-                            <h3>Ler 1 capítulo de livro</h3>
+                    {/* se tem hábitos passar para o componente private main criados */ 1===2 ? <TodayHabits /> : (
+                        <>
                             <div>
-                                <button>D</button>
-                                <button>S</button>
-                                <button>T</button>
-                                <button>Q</button>
-                                <button>Q</button>
-                                <button>S</button>
-                                <button>S</button>
+                                <h2>Meus hábitos</h2>
+                                <button onClick={() => setCreateHabits(!createHabits)}>+</button>
                             </div>
-                        </div>
-                        <div>icone lixo</div>
-                    </div> */}
 
-                    <form>
-                        <input type="text" placeholder="nome do hábito" />
-                        <div>
-                            <button>D</button>
-                            <button>S</button>
-                            <button>T</button>
-                            <button>Q</button>
-                            <button>Q</button>
-                            <button>S</button>
-                            <button>S</button>
-                        </div>
-                        <span>
-                            <button>Cancelar</button>
-                            <button>Salvar</button>
-                        </span>
-                    </form>
+                            <div>
+                                {createHabits ? <CreateHabits /> : <span>nada</span>}
+                            </div>
 
-                    <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
+                            <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
+                        </>
+                    ) }
                 </main>
             <Footer />
         </>
