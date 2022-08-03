@@ -4,7 +4,7 @@ export default function MyHabits() {
             <div>
                 <h3>Ler 1 capítulo de livro</h3>
                 <div>
-                    <button>D</button>
+                    <button>D</button> 
                     <button>S</button>
                     <button>T</button>
                     <button>Q</button>

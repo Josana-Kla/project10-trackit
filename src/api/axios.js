@@ -12,7 +12,7 @@ function signIn(body) {
     return promise;
 }
 
-function createTask(body) {
+function createHabit(body) {
     const promise = axios.post(`${BASE_URL}/habits`, body);
     return promise;
 }
@@ -22,7 +22,7 @@ function listHabits() {
     return promise;
 }
 
-function deleteHabit() {
+/* function deleteHabit() {
     const promise = axios.delete(`${BASE_URL}/habits/${habitId}`);
     return promise;
 }
@@ -40,7 +40,7 @@ function markHabitDone() {
 function unmarkHabitDone() {
     const promise = axios.post(`${BASE_URL}/habits/${habitId}/uncheck`);
     return promise;
-}
+} */
 
 function listHabitsHistory() {
     const promise = axios.get(`${BASE_URL}/habits/history/daily`);
@@ -48,4 +48,4 @@ function listHabitsHistory() {
 }
 
 
-export { signUp, signIn, createTask, listHabits, deleteHabit, searchTodayHabits, markHabitDone, unmarkHabitDone, listHabitsHistory }
+export { signUp, signIn, createHabit, listHabits, /* deleteHabit, searchTodayHabits, markHabitDone, unmarkHabitDone, */ listHabitsHistory }
