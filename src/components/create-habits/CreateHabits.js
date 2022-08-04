@@ -19,22 +19,24 @@ export default function CreateHabits() {
             days: weekdayNumbers 
         };
 
-        createHabit(body)
-        .then(() => /* navigate(<MyHabits />) */ console.log("sucesso"))
-        .catch(() => console.log("error"));
+        if(habitName.length > 0 && weekdayNumbers.length > 0) {
+            createHabit(body)
+            .then(() => /* navigate(<MyHabits />) */ console.log("sucesso"))
+            .catch(() => console.log("error"));
+        } 
 
     }
 
     return(
         <form onSubmit={handleForm}>
-            <input type="text" value={habitName} onChange={e => setHabitName(e.target.value)}  placeholder="nome do hábito" required />
+            <input type="text" value={habitName} onChange={e => setHabitName(e.target.value)}  placeholder="nome do hábito" />
             <div className="create-habit">
                 {daysButton.map((dayButton, index) => (
                     <DayButton key={index} idNumber={index} day={dayButton} setWeekdayNumbers={setWeekdayNumbers} weekdayNumbers={weekdayNumbers} />
                 ))}
             </div>
             <span>
-                <button onClick={() => <Habits />}>Cancelar</button>
+                <button onClick={() => navigate(<Habits />)}>Cancelar</button>
                 <button>Salvar</button>
             </span>
         </form>
@@ -44,23 +46,24 @@ export default function CreateHabits() {
 function DayButton( { day , idNumber, setWeekdayNumbers, weekdayNumbers } ) {
     const [ color, setColor ] = useState("");
    
-    //TODO: pegar só os elementos/id que tem o "day-selected"
+    //IMPORTANT: Nessa função, eu pego o elemento que cliquei, adiciono a cor, e depois crio um novo array contendo o id do elemento clicado, mas só se o id já não estiver dentro do array. Depois faço um filter para tirar os valores que ficam undefined quando eu desclico.
     function daySelected(idChosen) {
-     
         if(color === "") {
-            setColor("day-selected");
+            setColor("day-selected")
         } else {
             setColor("");
         }
 
-        if(weekdayNumbers.indexOf(idChosen) >= 0) {
-            return weekdayNumbers;
+        if(weekdayNumbers.indexOf(idChosen) !== -1) {
+            const newDays = weekdayNumbers.map(day => {
+                if(day !== idChosen) {
+                    return day;
+                }
+            });
+            setWeekdayNumbers(newDays.filter(day=> day != undefined));
         } else {
             setWeekdayNumbers([...weekdayNumbers, idChosen]);
-            console.log(weekdayNumbers)
-            console.log(color)
         }
-
     }
     
     return(
