@@ -15,8 +15,8 @@ export default function CreateHabits() {
         event.preventDefault();
 
         const body = {
-            name: "Nome do hábito",
-            days: [1, 3, 5] // segunda, quarta e sexta
+            name: habitName,
+            days: weekdayNumbers 
         };
 
         createHabit(body)
@@ -42,21 +42,25 @@ export default function CreateHabits() {
 }
 
 function DayButton( { day , idNumber, setWeekdayNumbers, weekdayNumbers } ) {
-    const [ selected, setSelected ] = useState(true);
     const [ color, setColor ] = useState("");
    
-    //TODO: fazer verificação para não repetir o id de dentro do array e pegar só os elementos que tem o "day-selected"
+    //TODO: pegar só os elementos/id que tem o "day-selected"
     function daySelected(idChosen) {
-        setSelected(!selected);
-
-        if(selected === true) {
+     
+        if(color === "") {
             setColor("day-selected");
-            setWeekdayNumbers(weekdayNumbers.includes(weekdayNumbers) ? weekdayNumbers.filter((value) => weekdayNumbers !== value) : [...weekdayNumbers, idChosen]);
-        } 
-         else {
+        } else {
             setColor("");
         }
-        console.log(weekdayNumbers)
+
+        if(weekdayNumbers.indexOf(idChosen) >= 0) {
+            return weekdayNumbers;
+        } else {
+            setWeekdayNumbers([...weekdayNumbers, idChosen]);
+            console.log(weekdayNumbers)
+            console.log(color)
+        }
+
     }
     
     return(
