@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { User } from './contexts/User';
 
 import SignIn from "./pages/sign-in/SignIn";
 import SignUp from "./pages/sign-up/SignUp";
@@ -9,13 +10,15 @@ import HabitsHistory from "./pages/habits-history/HabitsHistory";
 export default function App() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<SignIn />} /> 
-                <Route path="/cadastro" element={<SignUp />} />
-                <Route path="/habitos" element={<Habits />} />
-                <Route path="/hoje" element={<TodayHabits />} />
-                <Route path="/historico" element={<HabitsHistory />} />
-            </Routes>
+            {/* <User.Provider> */}
+                <Routes>
+                    <Route path="/" element={<SignIn />} /> 
+                    <Route path="/cadastro" element={<SignUp />} />
+                    <Route path="/habitos" element={<Habits />} />
+                    <Route path="/hoje" element={<TodayHabits />} />
+                    <Route path="/historico" element={<HabitsHistory />} />
+                </Routes>
+            {/* </User.Provider> */}
         </BrowserRouter>
     )
 }

@@ -6,6 +6,11 @@ body {
     background-color: #E5E5E5;
 }
 
+a {
+    text-decoration: none;
+    color: initial;
+}
+
 .create-habit div {
     background-color: #FFFFFF;
     border-radius: 5px;
