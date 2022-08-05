@@ -46,7 +46,7 @@ export default function SignUp() {
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="senha" pattern=".{8,}" title="Oito ou mais caracteres" required/>
                     <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="nome" pattern=".{2,}" title="Dois ou mais caracteres" required/>
                     <input type="url" value={image} onChange={e => setImage(e.target.value)} placeholder="foto" alt="profile-photo" pattern="https?://.+" title="Include http://" required />
-                    <button>Cadastrar</button>
+                    <button type="submit">Cadastrar</button>
                 </form>
                 <Link to="/">Já tem uma conta? Faça login!</Link>
             </div>
