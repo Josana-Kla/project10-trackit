@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
 import { AuthContext } from "./contexts/Auth";
@@ -17,18 +17,20 @@ export default function PrivatePage( { children } ) {
     /* const navigate = useNavigate(); */
 
     const { authenticated, loading } = useContext(AuthContext);
+    /* const { user } = useContext(AuthContext); */
 
     /* const auth = JSON.parse(localStorage.getItem("trackit"));
     const now = +new Date();
     const timeLogged = auth.timestamp; */
 
     if(loading) {
-        return <div>Carregando...</div>
+        return <div>Carregando...</div>;
     }
 
     if (!authenticated) {
-        return <Link to="/" />;
+        return <Navigate to="/" />;
     } else {
+      console.log("autheticated")
         return (
             <>
               <Header />
@@ -37,6 +39,18 @@ export default function PrivatePage( { children } ) {
             </>
           );
     }
+
+   /*  if(user === null) {
+      console.log("error")
+    } else {
+      return (
+        <>
+          <Header />
+          {children}
+          <Footer />
+        </>
+      );
+    } */
 
    /*  if (!auth) {
         return renderError();

@@ -21,7 +21,7 @@ export default function Habits() {
                             </div>
 
                             <div>
-                                {createHabits ? <CreateHabits /> : <span>nada</span>}
+                                {createHabits ? <CreateHabits setCreateHabits={setCreateHabits} /> : <span>nada</span>}
                             </div>
 
                             <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>

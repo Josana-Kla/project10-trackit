@@ -3,10 +3,10 @@ import { useNavigate, Link } from "react-router-dom";
 import { signUp } from "../../api/axios";
 
 export default function SignUp() {
-    const [ email, setEmail ] = useState();
-    const [ name, setName ] = useState();
-    const [ image, setImage ] = useState();
-    const [ password, setPassword ] = useState();
+    const [ email, setEmail ] = useState("");
+    const [ name, setName ] = useState("");
+    const [ image, setImage ] = useState("");
+    const [ password, setPassword ] = useState("");
 
     const navigate = useNavigate();
 

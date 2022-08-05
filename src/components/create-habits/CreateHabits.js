@@ -2,13 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import { createHabit } from "../../api/axios";
 
-import Habits from "../../pages/habits/Habits";
-import MyHabits from "../my-habits/MyHabits";
-
-export default function CreateHabits() {
+export default function CreateHabits( { setCreateHabits } ) {
     const daysButton = [ "D", "S", "T", "Q", "Q", "S", "S", "D" ];
     const [ weekdayNumbers, setWeekdayNumbers ] = useState([]);
     const [ habitName, setHabitName ] = useState('');
+    const [ hidden, setHidden ] = useState("");
     const navigate = useNavigate();
 
     function handleForm(event) {
@@ -27,8 +25,17 @@ export default function CreateHabits() {
 
     }
 
+    function hideForm() {
+        if(hidden === "") {
+            setHidden("hidden");
+            setCreateHabits(false);
+        } else {
+            setHidden("");
+        }
+    }
+
     return(
-        <form onSubmit={handleForm}>
+        <form className={hidden} onSubmit={handleForm}>
             <input type="text" value={habitName} onChange={e => setHabitName(e.target.value)}  placeholder="nome do hábito" />
             <div className="create-habit">
                 {daysButton.map((dayButton, index) => (
@@ -36,7 +43,7 @@ export default function CreateHabits() {
                 ))}
             </div>
             <span>
-                <button onClick={() => navigate(<Habits />)}>Cancelar</button>
+                <button onClick={hideForm}>Cancelar</button>
                 <button>Salvar</button>
             </span>
         </form>
@@ -50,7 +57,7 @@ function DayButton( { day , idNumber, setWeekdayNumbers, weekdayNumbers } ) {
     // TODO: Acrescentar um sort no array weekdayNumbers 
     function daySelected(idChosen) {
         if(color === "") {
-            setColor("day-selected")
+            setColor("day-selected");
         } else {
             setColor("");
         }

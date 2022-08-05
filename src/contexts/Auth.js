@@ -19,28 +19,31 @@ export const AuthProvider = ( { children } ) => {
         }
 
         setLoading(false);
-    }, [])
+    }, []);
 
-    const login = (body) => {
-        const response = signIn(body)
+    const login = async (body) => {
+        console.log(user);
+        const response = await signIn(user);
+
+        console.log(response.data);
         
-        console.log("login auth", response.data);
+        console.log("login auth", {body});
 
-        const loggedUser = response.data.user;
+        const loggedUser = response.data.name;
+        console.log(loggedUser);
         const token = response.data.token;
+        console.log(token);
 
         localStorage.setItem("user", JSON.stringify(loggedUser));
         localStorage.setItem("token", token);
 
         BASE_URL.defaults.headers.Authorization = `Bearer ${token}`;
-
     
         setUser(loggedUser);
         navigate("/hoje");
-    
     };
 
-    const logout = () => {
+    /* const logout = () => {
         console.log("logout");
         localStorage.removeItem("user");
         localStorage.removeItem("token");
@@ -49,10 +52,10 @@ export const AuthProvider = ( { children } ) => {
 
         setUser(null);
         navigate("/");
-    };
+    }; */
 
     return(
-        <AuthContext.Provider value={{ authenticated: !!user, user, login, logout }}>
+        <AuthContext.Provider value={{ authenticated: !!user, user, loading, setUser, login,  /*logout */ }}>
             {children}
         </AuthContext.Provider>
     )

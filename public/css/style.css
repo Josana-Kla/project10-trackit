@@ -11,6 +11,10 @@ a {
     color: initial;
 }
 
+.hidden {
+    display: none;
+}
+
 .create-habit div {
     background-color: #FFFFFF;
     border-radius: 5px;

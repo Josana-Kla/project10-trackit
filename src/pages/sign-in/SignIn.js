@@ -5,11 +5,15 @@ import { signIn } from "../../api/axios";
 import { AuthContext } from "../../contexts/Auth";
 
 export default function SignIn() {
-    const [ email, setEmail ] = useState();
-    const [ password, setPassword ] = useState();
+    const [ email, setEmail ] = useState("");
+    const [ password, setPassword ] = useState("");
 
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext);
+    const { authenticated, setUser, login } = useContext(AuthContext);
+
+    function redirect(userData) {
+        setUser(userData);
+    }
     
     function handleForm(event) {
         event.preventDefault();
@@ -21,19 +25,13 @@ export default function SignIn() {
 
         signIn(body)
         .then((res) => {
+            redirect(res.data)
             login(body);
             console.log("sucesso");
             console.log(res.data);
-            /* const { data } = res
-            if(data) { */
-                localStorage.setItem("trackit-data", res.data)
-                resetForm();
-                navigate("/hoje");
-                console.log("sucesso");
-                console.log(res.data);
-            /* } */
-           
             
+               /*  localStorage.setItem("trackit-data", res.data)
+                resetForm(); */
             })
         .catch(() => alert("error"));
     }
@@ -48,6 +46,7 @@ export default function SignIn() {
         <>
             <div className="login flex-center">
                 <img src="../../../assets/img/main-logo.svg" alt="main-logo" />
+                <p>{String(authenticated)}</p>
                 <form onSubmit={handleForm}>
                     <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="senha" pattern=".{8,}" title="Oito ou mais caracteres" required/>
