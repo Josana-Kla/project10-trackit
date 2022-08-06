@@ -15,7 +15,8 @@ a {
     display: none;
 }
 
-.create-habit div {
+.create-habit div , 
+.list-app div {
     background-color: #FFFFFF;
     border-radius: 5px;
 
@@ -23,10 +24,11 @@ a {
     height: 30px;
 }
 
-.create-habit div.day-selected {
+div.day-selected {
     background-color: #CFCFCF;
     border: 1px solid #CFCFCF;
 
     color: #FFFFFF;
     font-size: 19px;
 }
+

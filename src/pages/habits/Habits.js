@@ -1,34 +1,66 @@
-import { useState } from "react";
-
+import { listHabits } from "../../api/axios";
+import { useEffect, useState } from "react";
+import { createHabit, deleteHabit } from "../../api/axios";
 
 import CreateHabits from "../../components/create-habits/CreateHabits";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+import MyHabits from "../../components/my-habits/MyHabits";
 import TodayHabits from "../today-habits/TodayHabits";
 
 export default function Habits() {
     const [ createHabits, setCreateHabits ] = useState(false);
+    const [ myHabits, setMyHabits ] = useState([]);
+
+    useEffect(() => {
+        listHabits()
+        .then((response => setMyHabits(response.data)))
+        .catch(() => console.log("error"));
+    }, [])
+
+    function includeHabit(body) {
+        createHabit(body)
+        .then((res) => {
+            setMyHabits([...myHabits, res.data]);
+            setCreateHabits(false);
+        })
+        .catch(() => console.log("error"));
+    }
+
+    function deleteHabitFromState(habitId) {
+        deleteHabit(habitId)
+        .then(() => {
+            setMyHabits(myHabits.filter(habit => habit.id !== habitId)); 
+        })
+        .catch()
+    }
 
     return (
         <>
-            <Header />
-                <main>
-                    {/* se tem hábitos passar para o componente private main criados */ 1===2 ? <TodayHabits /> : (
-                        <>
-                            <div>
-                                <h2>Meus hábitos</h2>
-                                <button onClick={() => setCreateHabits(!createHabits)}>+</button>
-                            </div>
+            <main>
+                {/* se tem hábitos passar para o componente private main criados */ 1===2 ? <TodayHabits /> : (
+                    <>
+                        <div>
+                            <h2>Meus hábitos</h2>
+                            <button onClick={() => setCreateHabits(!createHabits)}>+</button>
+                        </div>
 
                             <div>
-                                {createHabits ? <CreateHabits setCreateHabits={setCreateHabits} /> : <span>nada</span>}
+                                {!createHabits || <CreateHabits setCreateHabits={setCreateHabits} includeHabit={includeHabit} />  }
                             </div>
 
-                            <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
-                        </>
-                    ) }
-                </main>
-            <Footer />
+                        {myHabits.length === 0 ? (
+                            <>
+                                <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
+                            </>
+                        ) : (
+                            <>
+                                {myHabits.map((myHabit, index) => (
+                                    <MyHabits key={index} myHabit={myHabit} deleteHabitFromState={deleteHabitFromState} />
+                                ))}
+                            </>
+                        )}
+                    </>
+                ) }
+            </main>
         </>
     )
 }

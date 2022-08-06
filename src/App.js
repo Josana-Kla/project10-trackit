@@ -17,11 +17,11 @@ export default function App() {
                     <Route path="/cadastro" element={<SignUp />} />
                     <Route 
                     path="/habitos" 
-                    element={<Habits />}
-                        /* <PrivatePage> */
-                            
-                        /* </PrivatePage> */
-                        
+                    element={
+                        <PrivatePage>
+                            <Habits />
+                        </PrivatePage>
+                        }
                     />
 
                     <Route 

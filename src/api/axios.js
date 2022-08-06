@@ -3,7 +3,7 @@ import axios from "axios";
 export const BASE_URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit";
 
 function getLocalToken() {
-    const auth = localStorage.getItem("trackit");
+    const auth = JSON.parse(localStorage.getItem("trackit"));
     const config = {
       headers: {
         Authorization: `Bearer ${auth.token}`
@@ -35,7 +35,7 @@ function listHabits() {
     return promise;
 }
 
-/* function deleteHabit(habitId) {
+function deleteHabit(habitId) {
     const config = getLocalToken();
     const promise = axios.delete(`${BASE_URL}/habits/${habitId}`, config);
     return promise;
@@ -57,7 +57,7 @@ function unmarkHabitDone(habitId) {
     const config = getLocalToken();
     const promise = axios.post(`${BASE_URL}/habits/${habitId}/uncheck`, '', config);
     return promise;
-} */
+}
 
 function listHabitsHistory() {
     const promise = axios.get(`${BASE_URL}/habits/history/daily`);
@@ -65,4 +65,4 @@ function listHabitsHistory() {
 }
 
 
-export { signUp, signIn, createHabit, listHabits, /* deleteHabit, searchTodayHabits, markHabitDone, unmarkHabitDone, */ listHabitsHistory }
+export { signUp, signIn, createHabit, listHabits, deleteHabit, searchTodayHabits, markHabitDone, unmarkHabitDone, listHabitsHistory }

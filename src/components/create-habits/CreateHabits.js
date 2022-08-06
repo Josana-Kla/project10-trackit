@@ -1,16 +1,16 @@
-import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
-import { createHabit } from "../../api/axios";
 
-export default function CreateHabits( { setCreateHabits } ) {
-    const daysButton = [ "D", "S", "T", "Q", "Q", "S", "S", "D" ];
+
+export default function CreateHabits( { setCreateHabits, includeHabit } ) {
+    const daysButton = [ "D", "S", "T", "Q", "Q", "S", "S" ];
     const [ weekdayNumbers, setWeekdayNumbers ] = useState([]);
     const [ habitName, setHabitName ] = useState('');
     const [ hidden, setHidden ] = useState("");
-    const navigate = useNavigate();
 
     function handleForm(event) {
         event.preventDefault();
+
+        weekdayNumbers.sort();
 
         const body = {
             name: habitName,
@@ -18,9 +18,8 @@ export default function CreateHabits( { setCreateHabits } ) {
         };
 
         if(habitName.length > 0 && weekdayNumbers.length > 0) {
-            createHabit(body)
-            .then(() => /* navigate(<MyHabits />) */ console.log("sucesso"))
-            .catch(() => console.log("error"));
+            console.log(body)
+            includeHabit(body)
         } 
 
     }

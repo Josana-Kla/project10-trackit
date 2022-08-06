@@ -1,19 +1,23 @@
-export default function MyHabits() {
+import { useEffect } from "react";
+
+export default function MyHabits( { myHabit, deleteHabitFromState  } ) {
+    const weekDays = [ "D", "S", "T", "Q", "Q", "S", "S" ];
+
+    function deleteHabit() {
+        deleteHabitFromState(myHabit.id);
+    } 
+
     return (
         <div>
             <div>
-                <h3>Ler 1 capítulo de livro</h3>
-                <div>
-                    <button>D</button> 
-                    <button>S</button>
-                    <button>T</button>
-                    <button>Q</button>
-                    <button>Q</button>
-                    <button>S</button>
-                    <button>S</button>
+                <h3>{myHabit.name}</h3>
+                <div className="list-app">
+                    {weekDays.map((weekDay, index) => (
+                        <div className={myHabit.days.indexOf(index) >= 0 ? "day-selected" : ""} id={index}>{weekDay}</div> 
+                    ))}
                 </div>
             </div>
-            <div>icone lixo</div>
+            <div onClick={deleteHabit}>icone lixo</div>
         </div> 
     )
 }

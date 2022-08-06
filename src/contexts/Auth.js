@@ -23,23 +23,11 @@ export const AuthProvider = ( { children } ) => {
         setLoading(false);
     }, []); */
 
-    const login = (body) => {
-        const response = signIn(user);
-        console.log(user);
-        console.log(response.data);
+    const login = (response) => {
+        console.log("login auth", {});
+
+        localStorage.setItem("trackit", JSON.stringify(response));
         
-        console.log("login auth", {body});
-
-        /* const loggedUser = response.data.name;
-        const loggedUserToken = response.data.token;
-        console.log(loggedUserToken);
-
-        localStorage.setItem("user", JSON.stringify(loggedUser));
-        localStorage.setItem("token", loggedUserToken);
-
-        BASE_URL.defaults.headers.Authorization = `Bearer ${loggedUserToken}`;
-    
-        setUser(loggedUser); */
         navigate("/hoje");
     };
 
@@ -47,12 +35,8 @@ export const AuthProvider = ( { children } ) => {
 
     /* const logout = () => {
         console.log("logout");
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
+        localStorage.clear("trackit");
 
-        BASE_URL.defaults.headers.Authorization = null;
-
-        setUser(null);
         navigate("/");
     }; */
 
