@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import ProgressDayContext from "../../contexts/ProgressDay";
-import { getTodayHabits } from "../../api/axios";
+import { getTodayHabits, markHabitDone } from "../../api/axios";
 import dayjs from "dayjs";
 import 'dayjs/locale/pt-br' 
 
@@ -20,8 +20,12 @@ export default function TodayHabits() {
         .catch(() => console.log("error"));
     }, []);
     
-    function markHabitAsDoneOrNot() {
+    function markHabitAsDoneOrNot(habitId) {
         
+
+        markHabitDone(habitId)
+        .then()
+        .catch()
     }
 
     return (
@@ -31,7 +35,7 @@ export default function TodayHabits() {
                 <p>Nenhum hábito concluído ainda</p>
             </div>
 
-            <div>
+            <div className="list-today-habits">
                 {todayHabits.length > 0 ? (
                     <>
                         {todayHabits.map((todayHabit, index) => (
@@ -41,7 +45,9 @@ export default function TodayHabits() {
                                     <p>Sequência atual: {todayHabit.currentSequence} dia(s)</p>
                                     <p>Seu recorde: {todayHabit.highestSequence} dia(s)</p>
                                 </div>
-                                <button onClick={markHabitAsDoneOrNot}>Check</button>
+                                <button onClick={markHabitAsDoneOrNot}>
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                </button>
                             </div>
                         ))} 
                     </>

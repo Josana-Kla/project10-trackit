@@ -11,6 +11,14 @@ a {
     color: initial;
 }
 
+.list-today-habits button {
+    background-color: rgb(203, 240, 203);
+}
+
+ion-icon {
+    color: rgb(27, 29, 29);
+}
+
 .hidden {
     display: none;
 }
