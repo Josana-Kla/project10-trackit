@@ -41,7 +41,7 @@ function deleteHabit(habitId) {
     return promise;
 }
 
-function searchTodayHabits() {
+function getTodayHabits() {
     const config = getLocalToken();
     const promise = axios.get(`${BASE_URL}/habits/today`, config);
     return promise;
@@ -65,4 +65,4 @@ function listHabitsHistory() {
 }
 
 
-export { signUp, signIn, createHabit, listHabits, deleteHabit, searchTodayHabits, markHabitDone, unmarkHabitDone, listHabitsHistory }
+export { signUp, signIn, createHabit, listHabits, deleteHabit, getTodayHabits, markHabitDone, unmarkHabitDone, listHabitsHistory }

@@ -18,8 +18,8 @@ export default function CreateHabits( { setCreateHabits, includeHabit } ) {
         };
 
         if(habitName.length > 0 && weekdayNumbers.length > 0) {
-            console.log(body)
-            includeHabit(body)
+            console.log(body);
+            includeHabit(body);
         } 
 
     }

@@ -1,30 +1,53 @@
-
+import { useContext, useEffect, useState } from "react"
+import ProgressDayContext from "../../contexts/ProgressDay";
+import { getTodayHabits } from "../../api/axios";
+import dayjs from "dayjs";
+import 'dayjs/locale/pt-br' 
 
 export default function TodayHabits() {
+    const [ todayHabits, setTodayHabits ] = useState([]);
+    
+    const currentWeekday = dayjs().locale('pt-br').format('dddd');
+    const capitalizedWeekday = currentWeekday[0].toUpperCase() + currentWeekday.substring(1);
+    const currentDate = dayjs().format('DD/MM');
+
+    useEffect(() => {
+        getTodayHabits()
+        .then((response) => {
+            console.log(response.data)
+            setTodayHabits(response.data)
+        })
+        .catch(() => console.log("error"));
+    }, []);
+    
+    function markHabitAsDoneOrNot() {
+        
+    }
+
     return (
         <>
             <div>
-                <h2>Segunda, 17/05</h2>
+                <h2>{capitalizedWeekday}, {currentDate}</h2>
                 <p>Nenhum hábito concluído ainda</p>
             </div>
 
             <div>
-                <div>
-                    <div>
-                        <h3>Ler 1 capítulo de livro</h3>
-                        <p>Sequência atual: 3 dias</p>
-                        <p>Seu recorde: 5 dias</p>
-                    </div>
-                    <button>Check</button>
-                </div>
-                <div>
-                    <div>
-                        <h3>Ler 1 capítulo de livro</h3>
-                        <p>Sequência atual: 3 dias</p>
-                        <p>Seu recorde: 5 dias</p>
-                    </div>
-                    <button>Check</button>
-                </div>
+                {todayHabits.length > 0 ? (
+                    <>
+                        {todayHabits.map((todayHabit, index) => (
+                            <div key={index} >
+                                <div>
+                                    <h3>{todayHabit.name}</h3>
+                                    <p>Sequência atual: {todayHabit.currentSequence} dia(s)</p>
+                                    <p>Seu recorde: {todayHabit.highestSequence} dia(s)</p>
+                                </div>
+                                <button onClick={markHabitAsDoneOrNot}>Check</button>
+                            </div>
+                        ))} 
+                    </>
+                ) : (
+                    <div>Você não tem nenhum hábito para hoje</div>
+                )}
             </div>
         </>
     )

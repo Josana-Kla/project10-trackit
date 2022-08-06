@@ -30,13 +30,13 @@ export default function Habits() {
         .then(() => {
             setMyHabits(myHabits.filter(habit => habit.id !== habitId)); 
         })
-        .catch()
+        .catch(() => console.log("error"));
     }
 
     return (
         <>
             <main>
-                {/* se tem hábitos passar para o componente private main criados */ 1===2 ? <TodayHabits /> : (
+                {/* se tem hábitos passar para o componente private main criados */ 1===2 ? <TodayHabits /* getTodayHabitsCreated={getTodayHabitsCreated}  *//> : (
                     <>
                         <div>
                             <h2>Meus hábitos</h2>
@@ -44,7 +44,7 @@ export default function Habits() {
                         </div>
 
                             <div>
-                                {!createHabits || <CreateHabits setCreateHabits={setCreateHabits} includeHabit={includeHabit} />  }
+                                {!createHabits || <CreateHabits setCreateHabits={setCreateHabits} includeHabit={includeHabit} />}
                             </div>
 
                         {myHabits.length === 0 ? (
