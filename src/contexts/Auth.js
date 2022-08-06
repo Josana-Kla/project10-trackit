@@ -9,39 +9,41 @@ export const AuthProvider = ( { children } ) => {
     const [ user, setUser ] = useState(null);
     const [ loading, setLoading ] = useState(true);
 
-    useEffect(() => {
-        const recoveredUser = localStorage.getItem("user");
-        const token = localStorage.getItem("token");
+   /*  useEffect(() => {
+        const recoveredUser = localStorage.getItem("trackit");
+        console.log(recoveredUser)
 
-        if(recoveredUser && token) {
-            setUser(JSON.parse(recoveredUser));
-            BASE_URL.defaults.headers.Authorization = `Bearer ${token}`;
+        if(recoveredUser) {
+            setUser(JSON.parse(recoveredUser)); */
+            /* BASE_URL.defaults.headers.Authorization = `Bearer ${token}`; */
+     /*    } else {
+            localStorage.clear("trackit");
         }
 
         setLoading(false);
-    }, []);
+    }, []); */
 
-    const login = async (body) => {
+    const login = (body) => {
+        const response = signIn(user);
         console.log(user);
-        const response = await signIn(user);
-
         console.log(response.data);
         
         console.log("login auth", {body});
 
-        const loggedUser = response.data.name;
-        console.log(loggedUser);
-        const token = response.data.token;
-        console.log(token);
+        /* const loggedUser = response.data.name;
+        const loggedUserToken = response.data.token;
+        console.log(loggedUserToken);
 
         localStorage.setItem("user", JSON.stringify(loggedUser));
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", loggedUserToken);
 
-        BASE_URL.defaults.headers.Authorization = `Bearer ${token}`;
+        BASE_URL.defaults.headers.Authorization = `Bearer ${loggedUserToken}`;
     
-        setUser(loggedUser);
+        setUser(loggedUser); */
         navigate("/hoje");
     };
+
+    
 
     /* const logout = () => {
         console.log("logout");

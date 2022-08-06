@@ -27,6 +27,7 @@ export default function SignIn() {
         .then((res) => {
             redirect(res.data)
             login(body);
+            localStorage.setItem("trackit", JSON.stringify(res.data));
             console.log("sucesso");
             console.log(res.data);
             

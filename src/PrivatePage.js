@@ -8,10 +8,10 @@ import Footer from "./components/Footer";
 const SEC = 1000;
 const MIN_20 = SEC * 60 * 20; */
 
-/* function renderError() {
+function renderError() {
     localStorage.clear("trackit");
     return <h1>VOCÊ NÃO É AUTORIZADO</h1>;
-  } */
+  }
 
 export default function PrivatePage( { children } ) {
     /* const navigate = useNavigate(); */
@@ -23,11 +23,13 @@ export default function PrivatePage( { children } ) {
     const now = +new Date();
     const timeLogged = auth.timestamp; */
 
-    if(loading) {
+   /*  if(loading) {
         return <div>Carregando...</div>;
-    }
+    } */
 
-    if (!authenticated) {
+    const userToken = JSON.parse(localStorage.getItem("trackit"));
+
+    if (!authenticated && !userToken) {
         return <Navigate to="/" />;
     } else {
       console.log("autheticated")
@@ -40,19 +42,8 @@ export default function PrivatePage( { children } ) {
           );
     }
 
-   /*  if(user === null) {
-      console.log("error")
-    } else {
-      return (
-        <>
-          <Header />
-          {children}
-          <Footer />
-        </>
-      );
-    } */
 
-   /*  if (!auth) {
+   /*  if (!userToken) {
         return renderError();
     }
     

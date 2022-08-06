@@ -2,6 +2,17 @@ import axios from "axios";
 
 export const BASE_URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit";
 
+function getLocalToken() {
+    const auth = localStorage.getItem("trackit");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${auth.token}`
+      }
+    };
+  
+    return config;
+}
+
 function signUp(body) {
     const promise = axios.post(`${BASE_URL}/auth/sign-up`, body);
     return promise;
@@ -13,32 +24,38 @@ function signIn(body) {
 }
 
 function createHabit(body) {
-    const promise = axios.post(`${BASE_URL}/habits`, body);
+    const config = getLocalToken();
+    const promise = axios.post(`${BASE_URL}/habits`, body, config);
     return promise;
 }
 
 function listHabits() {
-    const promise = axios.get(`${BASE_URL}/habits`);
+    const config = getLocalToken();
+    const promise = axios.get(`${BASE_URL}/habits`, config);
     return promise;
 }
 
-/* function deleteHabit() {
-    const promise = axios.delete(`${BASE_URL}/habits/${habitId}`);
+/* function deleteHabit(habitId) {
+    const config = getLocalToken();
+    const promise = axios.delete(`${BASE_URL}/habits/${habitId}`, config);
     return promise;
 }
 
 function searchTodayHabits() {
-    const promise = axios.get(`${BASE_URL}/habits/today`);
+    const config = getLocalToken();
+    const promise = axios.get(`${BASE_URL}/habits/today`, config);
     return promise;
 }
 
-function markHabitDone() {
-    const promise = axios.post(`${BASE_URL}/habits/${habitId}/check`);
+function markHabitDone(habitId) {
+    const config = getLocalToken();
+    const promise = axios.post(`${BASE_URL}/habits/${habitId}/check`, '', config);
     return promise;
 }
 
-function unmarkHabitDone() {
-    const promise = axios.post(`${BASE_URL}/habits/${habitId}/uncheck`);
+function unmarkHabitDone(habitId) {
+    const config = getLocalToken();
+    const promise = axios.post(`${BASE_URL}/habits/${habitId}/uncheck`, '', config);
     return promise;
 } */
 
