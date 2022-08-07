@@ -20,6 +20,15 @@ ion-icon {
     color: rgb(27, 29, 29);
 }
 
+.loading {
+    opacity: 0.5;
+}
+
+.input-loading {
+    background-color: #F2F2F2;
+    opacity: 0.5;
+}
+
 .greenSelect {
     background-color: green;
 }
@@ -37,7 +46,7 @@ ion-icon {
     height: 30px;
 }
 
-div.day-selected {
+button.day-selected {
     background-color: #CFCFCF;
     border: 1px solid #CFCFCF;
 

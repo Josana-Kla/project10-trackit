@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { ThreeDots } from  'react-loader-spinner';
 
-
-export default function CreateHabits( { setCreateHabits, includeHabit } ) {
+export default function CreateHabits( { setCreateHabits, includeHabit, loading } ) {
     const daysButton = [ "D", "S", "T", "Q", "Q", "S", "S" ];
     const [ weekdayNumbers, setWeekdayNumbers ] = useState([]);
+   
     const [ habitName, setHabitName ] = useState('');
     const [ hidden, setHidden ] = useState("");
 
@@ -11,7 +12,7 @@ export default function CreateHabits( { setCreateHabits, includeHabit } ) {
         event.preventDefault();
 
         weekdayNumbers.sort();
-
+        
         const body = {
             name: habitName,
             days: weekdayNumbers 
@@ -35,21 +36,27 @@ export default function CreateHabits( { setCreateHabits, includeHabit } ) {
 
     return(
         <form className={hidden} onSubmit={handleForm}>
-            <input type="text" value={habitName} onChange={e => setHabitName(e.target.value)}  placeholder="nome do hábito" />
+            <input type="text" value={habitName} onChange={e => setHabitName(e.target.value)}  placeholder="nome do hábito" disabled={loading} />
             <div className="create-habit">
                 {daysButton.map((dayButton, index) => (
-                    <DayButton key={index} idNumber={index} day={dayButton} setWeekdayNumbers={setWeekdayNumbers} weekdayNumbers={weekdayNumbers} />
+                    <DayButton key={index} idNumber={index} day={dayButton} setWeekdayNumbers={setWeekdayNumbers} weekdayNumbers={weekdayNumbers} loading={loading} />
                 ))}
             </div>
             <span>
-                <button onClick={hideForm}>Cancelar</button>
-                <button>Salvar</button>
+                <button onClick={hideForm} disabled={loading}>Cancelar</button>
+                {loading ? (
+                    <button disabled={loading} >
+                        <ThreeDots color="#FFFFFF" height={80} width={80} />
+                    </button>
+                ) : (
+                    <button type="submit">Salvar</button>
+                )}
             </span>
         </form>
     )
 }
 
-function DayButton( { day , idNumber, setWeekdayNumbers, weekdayNumbers } ) {
+function DayButton( { day , idNumber, setWeekdayNumbers, weekdayNumbers, loading } ) {
     const [ color, setColor ] = useState("");
    
     //IMPORTANT: Nessa função, eu pego o elemento que cliquei, adiciono a cor, e depois crio um novo array contendo o id do elemento clicado, mas só se o id já não estiver dentro do array. Depois faço um filter para tirar os valores que ficam undefined quando eu desclico.
@@ -74,6 +81,6 @@ function DayButton( { day , idNumber, setWeekdayNumbers, weekdayNumbers } ) {
     }
     
     return(
-        <div id={idNumber} className={color} onClick={() => daySelected(idNumber)}>{day}</div>
+        <button type="button" id={idNumber} className={color} onClick={() => daySelected(idNumber)} disabled={loading}>{day}</button>
     )
 }

@@ -1,6 +1,6 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext, /* useEffect */ } from "react";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL, signIn } from "../api/axios";
+/* import { BASE_URL, signIn } from "../api/axios"; */
 
 export const AuthContext = createContext();
 
@@ -30,8 +30,6 @@ export const AuthProvider = ( { children } ) => {
         
         navigate("/hoje");
     };
-
-    
 
     /* const logout = () => {
         console.log("logout");

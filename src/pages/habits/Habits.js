@@ -8,6 +8,7 @@ import TodayHabits from "../today-habits/TodayHabits";
 
 export default function Habits() {
     const [ createHabits, setCreateHabits ] = useState(false);
+    const [ loading, setLoading ] = useState(false);
     const [ myHabits, setMyHabits ] = useState([]);
 
     useEffect(() => {
@@ -17,12 +18,18 @@ export default function Habits() {
     }, [])
 
     function includeHabit(body) {
+        setLoading(true);
+
         createHabit(body)
         .then((res) => {
             setMyHabits([...myHabits, res.data]);
             setCreateHabits(false);
+            setLoading(false);
         })
-        .catch(() => console.log("error"));
+        .catch((res) => {
+            alert("error:" + res.data.error);
+            setLoading(false);
+        });
     }
 
     function deleteHabitFromState(habitId) {
@@ -36,7 +43,7 @@ export default function Habits() {
     return (
         <>
             <main>
-                {/* se tem hábitos passar para o componente private main criados */ 1===2 ? <TodayHabits /* getTodayHabitsCreated={getTodayHabitsCreated}  *//> : (
+                {myHabits.length < 0 ? <TodayHabits /> : (
                     <>
                         <div>
                             <h2>Meus hábitos</h2>
@@ -44,7 +51,7 @@ export default function Habits() {
                         </div>
 
                             <div>
-                                {!createHabits || <CreateHabits setCreateHabits={setCreateHabits} includeHabit={includeHabit} />}
+                                {!createHabits || <CreateHabits setCreateHabits={setCreateHabits} includeHabit={includeHabit} loading={loading} />}
                             </div>
 
                         {myHabits.length === 0 ? (
