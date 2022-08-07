@@ -12,11 +12,16 @@ a {
 }
 
 .list-today-habits button {
-    background-color: rgb(203, 240, 203);
+    height: 40px;
+    width: 40px;
 }
 
 ion-icon {
     color: rgb(27, 29, 29);
+}
+
+.greenSelect {
+    background-color: green;
 }
 
 .hidden {

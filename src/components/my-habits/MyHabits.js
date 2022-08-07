@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 
 export default function MyHabits( { myHabit, deleteHabitFromState } ) {
     const weekDays = [ "D", "S", "T", "Q", "Q", "S", "S" ];
@@ -20,7 +19,9 @@ export default function MyHabits( { myHabit, deleteHabitFromState } ) {
                     ))}
                 </div>
             </div>
-            <div onClick={deleteHabit}>icone lixo</div>
+            <div onClick={deleteHabit}>
+                <ion-icon name="trash-outline"></ion-icon>
+            </div>
         </div> 
     )
 }

@@ -49,13 +49,13 @@ function getTodayHabits() {
 
 function markHabitDone(habitId) {
     const config = getLocalToken();
-    const promise = axios.post(`${BASE_URL}/habits/${habitId}/check`, '', config);
+    const promise = axios.post(`${BASE_URL}/habits/${habitId}/check`, {} , config);
     return promise;
 }
 
 function unmarkHabitDone(habitId) {
     const config = getLocalToken();
-    const promise = axios.post(`${BASE_URL}/habits/${habitId}/uncheck`, '', config);
+    const promise = axios.post(`${BASE_URL}/habits/${habitId}/uncheck`, {} , config);
     return promise;
 }
 
