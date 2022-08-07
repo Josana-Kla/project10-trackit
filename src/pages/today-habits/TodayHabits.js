@@ -6,10 +6,9 @@ import 'dayjs/locale/pt-br'
 
 export default function TodayHabits() {
     const [ todayHabits, setTodayHabits ] = useState([]);
-    const { progressTodayHabits, setProgressTodayHabits } = useContext(ProgressDayContext);
-  /*   const habitsDone = todayHabits.filter((habit) => habit.done);
-    const habitsPercentage = doPercentage(habitsDone.length, todayHabits.length); */
-    const [ iconColor, setIconColor ] = useState("");
+    const [ dones, setDones ] = useState([]);
+    const { percentageDone, setPercentageDone } = useContext(ProgressDayContext);
+    setPercentageDone(doPercentage(dones.length, todayHabits.length));
     
     const currentWeekday = dayjs().locale('pt-br').format('dddd');
     const capitalizedWeekday = currentWeekday[0].toUpperCase() + currentWeekday.substring(1);
@@ -22,19 +21,12 @@ export default function TodayHabits() {
     useEffect(() => {
         getTodayHabits()
         .then((response) => {
-            setTodayHabits(response.data)
+            setTodayHabits(response.data);
+            setDones(response.data.filter((habit) => habit.done));
         })
         .catch(() => console.log("error"));
     }, [todayHabits.done]);
     
-   /*  function checkButton(datasHabitSelected, habitId, isDone) {
-        console.log(isDone);
-
-        {iconColor === "" ? setIconColor("greenSelect") : setIconColor("")}
-
-        {!isDone ? markHabitAsDone(habitId) : unmarkHabitAsDone(habitId)}
-    } */
-
     function markHabitAsDone(habitId) {
         markHabitDone(habitId)
         .then(() => {
@@ -57,7 +49,7 @@ export default function TodayHabits() {
         <>
             <div>
                 <h2>{capitalizedWeekday}, {currentDate}</h2>
-                <p>Nenhum hábito concluído ainda</p>
+                <p>{percentageDone > 0 ? `${percentageDone}% dos hábitos concluídos` : "Nenhum hábito concluído ainda"}</p>
             </div>
 
             <div className="list-today-habits">

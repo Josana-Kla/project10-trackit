@@ -1,5 +1,5 @@
 import { createContext } from 'react';
 
-const ProgressDayContext = createContext({});
+const ProgressDayContext = createContext();
 
 export default ProgressDayContext;
