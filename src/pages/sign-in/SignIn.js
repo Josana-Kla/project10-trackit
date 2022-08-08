@@ -4,6 +4,7 @@ import { ThreeDots } from  'react-loader-spinner';
 
 import { signIn } from "../../api/axios";
 import { AuthContext } from "../../contexts/Auth";
+import UserDatas from "../../contexts/UserDatas";
 
 export default function SignIn() {
     const [ email, setEmail ] = useState("");
@@ -11,11 +12,9 @@ export default function SignIn() {
     const [ loading, setLoading ] = useState(false);
 
     const { authenticated, setUser, login } = useContext(AuthContext);
+    const { userDatas, setUserDatas } = useContext(UserDatas);
 
-    function redirect(userData) {
-        setUser(userData);
-    }
-    
+  
     function handleForm(event) {
         event.preventDefault();
 
@@ -28,7 +27,7 @@ export default function SignIn() {
 
         signIn(body)
         .then((res) => {
-            redirect(res.data);
+            setUserDatas(res.data);
             login(res.data);
             
             console.log("sucesso");
