@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { ThreeDots } from  'react-loader-spinner';
-import { HabitsCreation } from "./Style";
+
+import { ActionButtons, HabitsCreation, WeekdaysStyle } from "./Style";
+
+import DayButton from "../DayButton.js/DayButton";
 
 export default function CreateHabits( { setCreateHabits, includeHabit, loading } ) {
     const daysButton = [ "D", "S", "T", "Q", "Q", "S", "S" ];
@@ -38,12 +41,12 @@ export default function CreateHabits( { setCreateHabits, includeHabit, loading }
     return(
         <HabitsCreation className={hidden} onSubmit={handleForm}>
             <input type="text" value={habitName} onChange={e => setHabitName(e.target.value)}  placeholder="nome do hábito" disabled={loading} />
-            <div className="create-habit">
+            <WeekdaysStyle className="create-habit">
                 {daysButton.map((dayButton, index) => (
                     <DayButton key={index} idNumber={index} day={dayButton} setWeekdayNumbers={setWeekdayNumbers} weekdayNumbers={weekdayNumbers} loading={loading} />
                 ))}
-            </div>
-            <span>
+            </WeekdaysStyle>
+            <ActionButtons>
                 <button onClick={hideForm} disabled={loading}>Cancelar</button>
                 {loading ? (
                     <button disabled={loading} >
@@ -52,36 +55,8 @@ export default function CreateHabits( { setCreateHabits, includeHabit, loading }
                 ) : (
                     <button type="submit">Salvar</button>
                 )}
-            </span>
+            </ActionButtons>
         </HabitsCreation>
     )
 }
 
-function DayButton( { day , idNumber, setWeekdayNumbers, weekdayNumbers, loading } ) {
-    const [ color, setColor ] = useState("");
-   
-    //IMPORTANT: Nessa função, eu pego o elemento que cliquei, adiciono a cor, e depois crio um novo array contendo o id do elemento clicado, mas só se o id já não estiver dentro do array. Depois faço um filter para tirar os valores que ficam undefined quando eu desclico.
-    
-    function daySelected(idChosen) {
-        if(color === "") {
-            setColor("day-selected");
-        } else {
-            setColor("");
-        }
-
-        if(weekdayNumbers.indexOf(idChosen) !== -1) {
-            const newDays = weekdayNumbers.map(day => {
-                if(day !== idChosen) {
-                    return day;
-                }
-            });
-            setWeekdayNumbers(newDays.filter(day=> day !== undefined));
-        } else {
-            setWeekdayNumbers([...weekdayNumbers, idChosen]);
-        }
-    }
-    
-    return(
-        <button type="button" id={idNumber} className={color} onClick={() => daySelected(idNumber)} disabled={loading}>{day}</button>
-    )
-}
