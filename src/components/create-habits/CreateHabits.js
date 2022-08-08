@@ -50,7 +50,7 @@ export default function CreateHabits( { setCreateHabits, includeHabit, loading }
                 <button onClick={hideForm} disabled={loading}>Cancelar</button>
                 {loading ? (
                     <button disabled={loading} >
-                        <ThreeDots color="#FFFFFF" height={80} width={80} />
+                        <ThreeDots color="#FFFFFF" height={40} width={40} />
                     </button>
                 ) : (
                     <button type="submit">Salvar</button>

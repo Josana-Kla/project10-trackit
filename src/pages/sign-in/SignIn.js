@@ -33,7 +33,6 @@ export default function SignIn() {
             login(res.data);
             
             console.log("sucesso");
-            console.log(res.data);
             })
         .catch(() => {
             alert("error");
@@ -57,11 +56,12 @@ export default function SignIn() {
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="senha" pattern=".{8,}" title="Oito ou mais caracteres" required disabled={loading} />
                     {loading ? (
                         <button type="submit" disabled={loading} >
-                            <ThreeDots color="#FFFFFF" height={80} width={80} />
+                            <ThreeDots color="#FFFFFF" height={50} width={50} />
                         </button>
                     ) : (
                         <button type="submit">Entrar</button>
                     )}
+                    
                 </LoginForm>
                 <Link to="/cadastro">Não tem uma conta? Cadastre-se!</Link>
             </LoginContent>

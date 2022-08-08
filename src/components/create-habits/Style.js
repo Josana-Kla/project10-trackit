@@ -55,6 +55,10 @@ const ActionButtons = styled.span`
         border-radius: 5px;
         border: none;
 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         width: 84px;
 
         color: #FFFFFF;

@@ -30,7 +30,7 @@ export default function Habits() {
             setLoading(false);
         })
         .catch((res) => {
-            alert("error:" + res.data.error);
+            alert("error:" + res.data.message);
             setLoading(false);
         });
     }

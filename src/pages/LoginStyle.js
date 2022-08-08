@@ -54,6 +54,10 @@ const LoginForm = styled.form`
         border-radius: 5px;
         border: none;
 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         width: 303px;
         height: 45px;
 

@@ -12,7 +12,7 @@ export default function TodayHabits() {
     const [ todayHabits, setTodayHabits ] = useState([]);
     const [ dones, setDones ] = useState([]);
     const { percentageDone, setPercentageDone } = useContext(ProgressDayContext);
-    setPercentageDone(doPercentage(dones.length, todayHabits.length));
+    setPercentageDone(doPercentage(dones.length, todayHabits.length).toFixed(0));
     
     const currentWeekday = dayjs().locale('pt-br').format('dddd');
     const capitalizedWeekday = currentWeekday[0].toUpperCase() + currentWeekday.substring(1);
