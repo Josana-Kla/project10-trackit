@@ -53,7 +53,7 @@ export default function TodayHabits() {
         <Main>
             <TodayTitle>
                 <h2>{capitalizedWeekday}, {currentDate}</h2>
-                <p>{percentageDone > 0 ? `${percentageDone}% dos hábitos concluídos` : "Nenhum hábito concluído ainda"}</p>
+                <p>{percentageDone > 0 ? (<span className="green-text">{percentageDone}% dos hábitos concluídos</span>) : "Nenhum hábito concluído ainda"}</p>
             </TodayTitle>
 
             <ListTodayHabits>
@@ -63,8 +63,8 @@ export default function TodayHabits() {
                             <CardTodayHabit key={index} >
                                 <div>
                                     <h3>{todayHabit.name}</h3>
-                                    <p>Sequência atual: {todayHabit.currentSequence} dia(s)</p>
-                                    <p>Seu recorde: {todayHabit.highestSequence} dia(s)</p>
+                                    <p>Sequência atual: {percentageDone > 0 ? (<span className="green-text">{todayHabit.currentSequence} dia(s)</span>) : `${todayHabit.currentSequence} dia(s)`}</p>
+                                    <p className="initial-color">Seu recorde: {todayHabit.highestSequence} dia(s)</p>
                                 </div>
                                 {todayHabit.done ? (
                                     <button className="greenSelect" onClick={() => unmarkHabitAsDone(todayHabit.id)}>

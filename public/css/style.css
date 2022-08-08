@@ -12,6 +12,14 @@
     display: none;
 }
 
+.green-text {
+    color: #8FC549;
+}
+
+.initial-color {
+    color: #666666;
+}
+
 .create-habit div , 
 .list-app div {
     background-color: #FFFFFF;
