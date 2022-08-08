@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import dayjs from "dayjs";
 import 'dayjs/locale/pt-br' 
 
+import { CardTodayHabit, ListTodayHabits, TodayTitle } from "./Style";
 import Main from "../Main";
 
 import ProgressDayContext from "../../contexts/ProgressDay";
@@ -50,16 +51,16 @@ export default function TodayHabits() {
 
     return (
         <Main>
-            <div>
+            <TodayTitle>
                 <h2>{capitalizedWeekday}, {currentDate}</h2>
                 <p>{percentageDone > 0 ? `${percentageDone}% dos hábitos concluídos` : "Nenhum hábito concluído ainda"}</p>
-            </div>
+            </TodayTitle>
 
-            <div className="list-today-habits">
+            <ListTodayHabits>
                 {todayHabits.length > 0 ? (
                     <>
                         {todayHabits.map((todayHabit, index) => (
-                            <div key={index} >
+                            <CardTodayHabit key={index} >
                                 <div>
                                     <h3>{todayHabit.name}</h3>
                                     <p>Sequência atual: {todayHabit.currentSequence} dia(s)</p>
@@ -74,13 +75,13 @@ export default function TodayHabits() {
                                         <ion-icon name="checkmark-outline"></ion-icon>
                                     </button>
                                 )}
-                            </div>
+                            </CardTodayHabit>
                         ))} 
                     </>
                 ) : (
                     <div>Você não tem nenhum hábito para hoje</div>
                 )}
-            </div>
+            </ListTodayHabits>
         </Main>
     )
 }

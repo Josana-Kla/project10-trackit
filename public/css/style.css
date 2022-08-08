@@ -1,11 +1,3 @@
-.list-today-habits button {
-    height: 40px;
-    width: 40px;
-}
-
-ion-icon {
-    color: rgb(27, 29, 29);
-}
 
 .loading {
     opacity: 0.5;
@@ -14,10 +6,6 @@ ion-icon {
 .input-loading {
     background-color: #F2F2F2;
     opacity: 0.5;
-}
-
-.greenSelect {
-    background-color: green;
 }
 
 .hidden {
