@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+const MyHabitsListCreated = styled.p`
+    p {
+        color: #666666;
+        font-size: 18px;
+    }
+`
+
 const Title = styled.div`
     display: flex;
     justify-content: space-between;
@@ -27,4 +34,4 @@ const Title = styled.div`
 
 `; 
 
-export {  Title };
+export { MyHabitsListCreated, Title };

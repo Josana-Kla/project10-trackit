@@ -20,6 +20,11 @@ const ListTodayHabits = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    div {
+        color: #666666;
+        font-size: 18px;
+    }
 `
 
 const CardTodayHabit = styled.div`

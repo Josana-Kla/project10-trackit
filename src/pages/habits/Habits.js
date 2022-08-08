@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { listHabits } from "../../api/axios";
 import { createHabit, deleteHabit } from "../../api/axios";
 
-import { Title } from "./Style";
+import { MyHabitsListCreated, Title } from "./Style";
 import Main from "../Main";
 
 import CreateHabits from "../../components/create-habits/CreateHabits";
@@ -46,7 +46,7 @@ export default function Habits() {
     return (
         <Main>
             {myHabits.length < 0 ? <TodayHabits /> : (
-                <>
+                <MyHabitsListCreated>
                     <Title>
                         <h2>Meus hábitos</h2>
                         <button onClick={() => setCreateHabits(!createHabits)}>+</button>
@@ -63,7 +63,7 @@ export default function Habits() {
                             ))}
                         </>
                     )}
-                </>
+                </MyHabitsListCreated>
             ) }
         </Main>
     )
