@@ -1,3 +1,4 @@
+import { HabitName, HabitsStyle, ListHabit, DayHabit, Trash } from "./Style";
 
 export default function MyHabits( { myHabit, deleteHabitFromState } ) {
     const weekDays = [ "D", "S", "T", "Q", "Q", "S", "S" ];
@@ -10,19 +11,19 @@ export default function MyHabits( { myHabit, deleteHabitFromState } ) {
     } 
 
     return (
-        <div>
-            <div>
+        <HabitsStyle>
+            <HabitName>
                 <h3>{myHabit.name}</h3>
-                <div className="list-app">
+                <ListHabit>
                     {weekDays.map((weekDay, index) => (
-                        <div key={index} className={myHabit.days.indexOf(index) >= 0 ? "day-selected" : ""}>{weekDay}</div> 
+                        <DayHabit key={index} className={myHabit.days.indexOf(index) >= 0 ? "day-selected" : ""}>{weekDay}</DayHabit> 
                     ))}
-                </div>
-            </div>
-            <div onClick={deleteHabit}>
+                </ListHabit>
+            </HabitName>
+            <Trash onClick={deleteHabit}>
                 <ion-icon name="trash-outline"></ion-icon>
-            </div>
-        </div> 
+            </Trash>
+        </HabitsStyle> 
     )
 }
 

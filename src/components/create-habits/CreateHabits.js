@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ThreeDots } from  'react-loader-spinner';
+import { HabitsCreation } from "./Style";
 
 export default function CreateHabits( { setCreateHabits, includeHabit, loading } ) {
     const daysButton = [ "D", "S", "T", "Q", "Q", "S", "S" ];
@@ -35,7 +36,7 @@ export default function CreateHabits( { setCreateHabits, includeHabit, loading }
     }
 
     return(
-        <form className={hidden} onSubmit={handleForm}>
+        <HabitsCreation className={hidden} onSubmit={handleForm}>
             <input type="text" value={habitName} onChange={e => setHabitName(e.target.value)}  placeholder="nome do hábito" disabled={loading} />
             <div className="create-habit">
                 {daysButton.map((dayButton, index) => (
@@ -52,7 +53,7 @@ export default function CreateHabits( { setCreateHabits, includeHabit, loading }
                     <button type="submit">Salvar</button>
                 )}
             </span>
-        </form>
+        </HabitsCreation>
     )
 }
 

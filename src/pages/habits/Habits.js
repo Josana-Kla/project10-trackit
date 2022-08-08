@@ -1,13 +1,13 @@
-import { listHabits } from "../../api/axios";
 import { useEffect, useState } from "react";
+import { listHabits } from "../../api/axios";
 import { createHabit, deleteHabit } from "../../api/axios";
 
-import HabitsStyle from "./Style";
+import { Title } from "./Style";
 import Main from "../Main";
 
 import CreateHabits from "../../components/create-habits/CreateHabits";
-import MyHabits from "../../components/my-habits/MyHabits";
 import TodayHabits from "../today-habits/TodayHabits";
+import MyHabits from "../../components/my-habits/MyHabits";
 
 export default function Habits() {
     const [ createHabits, setCreateHabits ] = useState(false);
@@ -47,19 +47,15 @@ export default function Habits() {
         <Main>
             {myHabits.length < 0 ? <TodayHabits /> : (
                 <>
-                    <div>
+                    <Title>
                         <h2>Meus hábitos</h2>
                         <button onClick={() => setCreateHabits(!createHabits)}>+</button>
-                    </div>
-
-                        <div>
-                            {!createHabits || <CreateHabits setCreateHabits={setCreateHabits} includeHabit={includeHabit} loading={loading} />}
-                        </div>
+                    </Title>
+                
+                    {!createHabits || <CreateHabits setCreateHabits={setCreateHabits} includeHabit={includeHabit} loading={loading} />}
 
                     {myHabits.length === 0 ? (
-                        <>
-                            <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
-                        </>
+                        <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
                     ) : (
                         <>
                             {myHabits.map((myHabit, index) => (

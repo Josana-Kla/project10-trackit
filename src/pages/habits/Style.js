@@ -1,12 +1,30 @@
 import styled from "styled-components";
 
-const HabitsStyle = styled.div`
-    
+const Title = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    margin-bottom: 20px;
 
-  
+    h2 {
+        color: #126BA5;
+        font-size: 23px;
+    }
 
-   
-` 
+    button {
+        background-color: #52B6FF;
+        border-radius: 5px;
+        border: none;
 
-export default HabitsStyle;
+        width: 40px;
+        height: 35px;
+
+        color: #FFFFFF;
+        font-size: 27px;
+        font-weight: bold;
+    }
+
+`; 
+
+export {  Title };
