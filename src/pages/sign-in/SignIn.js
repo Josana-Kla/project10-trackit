@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThreeDots } from  'react-loader-spinner';
 
+import { InitialContent, LoginContent, LoginForm } from "../LoginStyle";
+
 import { signIn } from "../../api/axios";
 import { AuthContext } from "../../contexts/Auth";
 import UserDatas from "../../contexts/UserDatas";
@@ -47,11 +49,10 @@ export default function SignIn() {
 
 
     return (
-        <>
-            <div className="login flex-center">
+        <InitialContent>
+            <LoginContent>
                 <img src="../../../assets/img/main-logo.svg" alt="main-logo" />
-                <p>{String(authenticated)}</p>
-                <form onSubmit={handleForm}>
+                <LoginForm onSubmit={handleForm}>
                     <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required disabled={loading} />
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="senha" pattern=".{8,}" title="Oito ou mais caracteres" required disabled={loading} />
                     {loading ? (
@@ -61,9 +62,9 @@ export default function SignIn() {
                     ) : (
                         <button type="submit">Entrar</button>
                     )}
-                </form>
+                </LoginForm>
                 <Link to="/cadastro">Não tem uma conta? Cadastre-se!</Link>
-            </div>
-        </>
+            </LoginContent>
+        </InitialContent>
     )
 }

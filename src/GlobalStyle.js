@@ -36,6 +36,9 @@ const GlobalStyle = createGlobalStyle`
     body {
         line-height: 1;
         background-color: #E5E5E5;
+        
+        font-family: 'Lexend Deca', sans-serif;
+        font-weight: 400;
     }
 
     ol, ul {
@@ -62,7 +65,6 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Lexend Deca', sans-serif;
         font-weight: 400;
     }
-
 
     a {
         text-decoration: none;

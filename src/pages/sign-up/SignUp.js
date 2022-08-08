@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ThreeDots } from  'react-loader-spinner';
 
+import { InitialContent, LoginContent, LoginForm } from "../LoginStyle";
+
 import { signUp } from "../../api/axios";
 
 export default function SignUp() {
@@ -47,10 +49,10 @@ export default function SignUp() {
     }
 
     return (
-        <>
-            <div className="login flex-center">
+        <InitialContent>
+            <LoginContent>
                 <img src="../../../assets/img/main-logo.svg" alt="main-logo" />
-                <form onSubmit={handleForm}>
+                <LoginForm onSubmit={handleForm}>
                     <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required disabled={loading} />
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="senha" pattern=".{8,}" title="Oito ou mais caracteres" required disabled={loading} />
                     <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="nome" pattern=".{2,}" title="Dois ou mais caracteres" required disabled={loading} />
@@ -62,9 +64,9 @@ export default function SignUp() {
                     ) : (
                         <button type="submit">Cadastrar</button>
                     )}
-                </form>
+                </LoginForm>
                 <Link to="/">Já tem uma conta? Faça login!</Link>
-            </div>
-        </>
+            </LoginContent>
+        </InitialContent>
     )
 }
