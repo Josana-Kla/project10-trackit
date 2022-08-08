@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FooterStyle = styled.header`
+const FooterStyle = styled.footer`
     background-color: #FFFFFF;
 
     padding: 0 36px;

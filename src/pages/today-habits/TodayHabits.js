@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from "react"
-import ProgressDayContext from "../../contexts/ProgressDay";
-import { getTodayHabits, markHabitDone, unmarkHabitDone } from "../../api/axios";
 import dayjs from "dayjs";
 import 'dayjs/locale/pt-br' 
+
+import Main from "../Main";
+
+import ProgressDayContext from "../../contexts/ProgressDay";
+import { getTodayHabits, markHabitDone, unmarkHabitDone } from "../../api/axios";
 
 export default function TodayHabits() {
     const [ todayHabits, setTodayHabits ] = useState([]);
@@ -46,7 +49,7 @@ export default function TodayHabits() {
     }
 
     return (
-        <>
+        <Main>
             <div>
                 <h2>{capitalizedWeekday}, {currentDate}</h2>
                 <p>{percentageDone > 0 ? `${percentageDone}% dos hábitos concluídos` : "Nenhum hábito concluído ainda"}</p>
@@ -78,6 +81,6 @@ export default function TodayHabits() {
                     <div>Você não tem nenhum hábito para hoje</div>
                 )}
             </div>
-        </>
+        </Main>
     )
 }
