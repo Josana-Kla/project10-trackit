@@ -3,6 +3,8 @@ import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useContext } from "react"
+
+import FooterStyle from './FooterStyle';
 import ProgressDayContext from "../contexts/ProgressDay";
 
 export default function Footer() {
@@ -10,8 +12,9 @@ export default function Footer() {
     const { percentageDone } = useContext(ProgressDayContext);
     
     return(
-        <footer>
-            <div onClick={() => navigate("/hoje")} style={{ width: 200, height: 200, }} >
+        <FooterStyle>
+            <Link to="/habitos">Hábitos</Link>
+            <div onClick={() => navigate("/hoje")} style={{ width: 91, height: 91 }} >
                 <CircularProgressbar onClick={() => navigate("/hoje")} text="Hoje" value={percentageDone} background backgroundPadding={5}
                 styles={buildStyles({
                     backgroundColor: '#52B6FF',
@@ -21,8 +24,7 @@ export default function Footer() {
                     })} 
                 />
             </div>
-            <Link to="/habitos">Hábitos</Link>
             <Link to="/historico">Histórico</Link>
-        </footer>
+        </FooterStyle>
     )
 }
