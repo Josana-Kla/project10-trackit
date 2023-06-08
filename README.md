@@ -1,43 +1,166 @@
+<div id="top"></div>
+<h1 align="center"> TrackIt: Rastreamento de Hábitos </h1> 
+
+<p align="center">
+  <a href="https://project10-trackit-brown.vercel.app/"><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/></a>
+  <a href="//www.linkedin.com/in/josana/"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="LinkedIn"></a>
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/STATUS-CONCLUÍDO-green"/>
+</p>
+  
+> Status do Projeto: 🟢 CONCLUÍDO
+
+
+### Tópicos  
+
+:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
+
+:small_blue_diamond: [Acesso ao projeto](#acesso-ao-projeto)
+
+:small_blue_diamond: [Como abrir e rodar o projeto localmente](#como-abrir-e-rodar-o-projeto-localmente)
+
+:small_blue_diamond: [Funcionalidades da aplicação](#funcionalidades-da-aplicação)
+
+:small_blue_diamond: [Demonstração da aplicação](#demonstração-da-aplicação)
+
+:small_blue_diamond: [Tecnologias utilizadas](#tecnologias-utilizadas)
+
+:small_blue_diamond: [Desenvolvido por](#desenvolvido-por)
+
+:small_blue_diamond: [Contatos](#contatos)
+
+</br>
+
+## <a name=“descrição-do-projeto”>🧾Descrição do projeto<a/>  
+
+<p align="justify">
+O projeto foi feito utilizando principalmente React.js com intuito de criar um gerenciador e rastreador de hábitos pessoais. 
+</p>
+
+<p align="right">(<a href="#top">Voltar para o topo</a>)</p>
+
+## <a name=“acesso-ao-projeto”>📁Acesso ao projeto<a/> 
+
+Você pode [acessar o código fonte do projeto](https://github.com/Josana-Kla/project10-trackit) ou [baixá-lo](https://github.com/Josana-Kla/project10-trackit/archive/refs/heads/main.zip).
+
+Outra opção bem prática é você acessar o deploy da aplicação no Vercel por [aqui](https://project10-trackit-brown.vercel.app/).
+
+<p align="right">(<a href="#top">Voltar para o topo</a>)</p>
+
+
+## <a name=“como-abrir-e-rodar-o-projeto-localmente”>🔌Como abrir e rodar o projeto localmente<a/> 
+
+Inicializar o projeto TrackIt de rastreamento de hábitos em seu ambiente de desenvolvimento local é bem simples. Primeiro tenha certeza de ter o [Git](https://git-scm.com/downloads) e [Node.js](https://nodejs.org/) instalados e então siga os passos abaixo.
+
+1. Clone o código fonte usando o terminal/prompt de comando
+
+ `git clone https://github.com/Josana-Kla/project10-trackit.git`
+
+2. Abra o diretório do projeto na IDE de sua preferência
+
+2. Instale as dependẽncias de desenvolvimento
+
+ `npm install`
+
+3. Execute um servidor de desenvolvimento local
+
+ `npm start`
+
+4. Acesse [http://localhost:3000](http://localhost:3000) no browser de sua preferência
+  
+Pronto! O projeto TrackIt já está funcionando! 
+
+<p align="right">(<a href="#top">Voltar para o topo</a>)</p>
+
+
+## <a name=“funcionalidades-da-aplicação”>🔨Funcionalidades da aplicação<a/> 
+
+
+### O que foi feito:
+- [x] Cadastro de Usuário (e-mail, senha, nome e foto)
+- [x] Login do Usuário (e-mail e senha)
+
+<p align="right">(<a href="#top">Voltar para o topo</a>)</p>
+
+  
+## <a name=“demonstração-da-aplicação”>🎬Demonstração da aplicação<a/>
+
+### Abaixo temos simulações da aplicação:
+  
+Ao rodar a aplicação com seu navegador de preferência, você terá acesso a página de login do usuário contendo um formulário a ser preenchido com e-mail e senha. Caso seja o primeiro acesso, é possível fazer o cadastro do usuário clicando no link em azul: "Não tem uma conta? Cadastre-se!", que o redicionará para a página de cadastro, onde é necessário preencher os campos: e-mail, senha, nome e foto.
+<!--
+<p align="center">
+  <img src="./assets/para-readme/cadastro-novos-clientes-e-produtos.gif" title="Cadastro de novos clientes e produtos" alt="O gif mostra a aplicação em execução, simulando o cadastro de novos clientes e produtos. O usuário insere os dados nos campos designados e depois clica no botão cadastrar. O contador do estoque é alterado conforme a inserção de novos cadastros" width=500 height=225 />
+</p>
+
+  
+Também há a opção de limpar todos os campos que preenchemos, caso os dados estejam errados. Depois dos cadastros, podemos clicar no botão Ver estoque para acessar a lista de Clientes, Produtos, Códigos dos Produtos e Quantidade de Produtos cadastrados.
+  
+<p align="center">
+  <img src="assets/para-readme/limpar-campos-ver-estoque.gif" title="Limpando campos e vendo estoque atualizado" alt="O gif mostra a aplicação em execução, simulando a limpeza de todos os campos preenchidos e mostra o estoque atualizado com os novos produtos" width=500 height=225 />
+</p>
+-->
+<p align="right">(<a href="#top">Voltar para o topo</a>)</p>
+  
+## <a name=“tecnologias-utilizadas” id="techs">✔Tecnologias utilizadas<a/>
+### As tecnologias e bibliotecas utilizadas para o desenvolvimento do projeto foram:
+- ``React.JS``
+- ``Javascript``
+- ``CSS``
+- ``StyledComponents``
+- ``Axios``
+- ``DayJS``
+- ``Loading Spinner``
+- ``Circular Progress Bar``
+- ``Git``
+- ``Visual Studio Code IDE`` 
+</br>
+
+<p align="right">(<a href="#top">Voltar para o topo</a>)</p>
+
+## <a name=“desenvolvido-por”>👩‍💻Desenvolvido por<a/>
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Josana-Kla/">
+        <img src="https://avatars.githubusercontent.com/u/73187817?s=400&u=343a33ac5cbd16538d7c39b20e42764dfcf1c7e0&v=4" title="Josana Klagenberg" alt="Desenvolvido por Josana Klagenberg" width=115><br/>
+        <sub><b>Josana Klagenberg</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<p align="right">(<a href="#top">Voltar para o topo</a>)</p>
+
+## <a name=“contatos”>☎Contatos<a/>
+
+**LinkedIn:** [/josana](https://www.linkedin.com/in/josana/) 
+
+**E-mail**: [contato.josana@gmail.com](mailto:contato.josana@gmail.com)
+
+**Perfil no GitHub:** [/Josana-Kla](https://github.com/Josana-Kla)
+
+<p align="right">(<a href="#top">Voltar para o topo</a>)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
 
@@ -45,26 +168,8 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-->
