@@ -35,7 +35,7 @@
 ## <a name=“descrição-do-projeto”>🧾Descrição do projeto<a/>  
 
 <p align="justify">
-O projeto foi feito utilizando principalmente React.js com intuito de criar um gerenciador e rastreador de hábitos pessoais. 
+O projeto foi feito utilizando principalmente React.js com intuito de criar um gerenciador e rastreador de hábitos pessoais. A aplicação conta uma página de criação e login do usuário. Ao fazer login, é possível criar, remover e atualizar hábitos, fazer o acompanhamento diário e semanal da lista de hábitos, quais foram concluídos e os que estão pendentes, a sequêncial atual e o recorde de dias mantendo um hábito. Também é possível ver a porcentagem de hábitos concluídos de forma gráfica.
 </p>
 
 <p align="right">(<a href="#top">Voltar para o topo</a>)</p>
@@ -78,8 +78,14 @@ Pronto! O projeto TrackIt já está funcionando!
 
 
 ### O que foi feito:
-- [x] Cadastro de Usuário (e-mail, senha, nome e foto)
-- [x] Login do Usuário (e-mail e senha)
+- [x] Cadastro de usuário (e-mail, senha, nome e foto)
+- [x] Login do usuário (e-mail e senha)
+- [x] Menu com logo e perfil do usuário
+- [x] Criação, deleção e atualização de hábitos
+- [x] Rastreamento da sequência e recorde diário dos hábitos a serem feitos e concluídos
+- [x] Visualização gráfica da porcentagem de hábitos concluídos
+- [x] Listagem semanal de todos os hábitos
+<!-- - [ ] Histórico de hábitos concluídos -->
 
 <p align="right">(<a href="#top">Voltar para o topo</a>)</p>
 
